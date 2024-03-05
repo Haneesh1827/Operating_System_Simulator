@@ -1,7 +1,7 @@
 #ifndef LJF
 #define LJF
 #include"utilities.hpp"
-#include<vector>
+#include <queue>
 using namespace std;
 void ljf(vector<process> &proce_list);
 class ComparePriority_ljf {

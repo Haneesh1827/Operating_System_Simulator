@@ -1,7 +1,7 @@
 #ifndef Priority
 #define Priority
 #include"utilities.hpp"
-#include<vector>
+#include<queue>
 using namespace std;
 class ComparePriority_priority {
     public:

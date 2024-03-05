@@ -2,7 +2,7 @@
 #include <bits/stdc++.h> 
 using namespace std; 
 
-
+/*
 // ANSI escape codes for text colors
 #define RESET   "\033[0m"
 #define RED     "\033[31m"      
@@ -12,7 +12,7 @@ using namespace std;
 #define MAGENTA "\033[35m"      
 #define CYAN    "\033[36m"      
 #define WHITE   "\033[37m"
-  
+*/
 int disk_size = 1000; 
 
 /*void LOOK(int arr[], int head, string direction) 

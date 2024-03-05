@@ -1,7 +1,6 @@
-#include<iostream>
-#include"utilities.hpp"
+
 #include"SRTF.hpp"
-#include<vector>
+
 
 bool  ComparePriority_SRTF::operator()(const process* a, const process* b) {
     // Higher priority goes first
@@ -11,9 +10,9 @@ bool  ComparePriority_SRTF::operator()(const process* a, const process* b) {
 
 
 void srtf(std::vector<process>& proc_list){
-    /*
     
-    cout << "This is the demo for Shortest Remaining Time First scheduling algorithm \n";
+    
+    cout << "SRTF \n";
     
     int i = 0;
     int n = proc_list.size();
@@ -22,11 +21,11 @@ void srtf(std::vector<process>& proc_list){
         i++;    
     }
 
-    sort(proc_list.begin(), proc_list.end(), srtf_comp_atime);
+    sort(proc_list.begin(), proc_list.end(), compare_atime);
  
-    priority_queue<Process*, vector<Process*>, ComparePriority> pq;
+    priority_queue<process*, vector<process*>, ComparePriority_SRTF> pq;
     int curr_time = 0, completed = 0, ptr = 0, x;
-    Process* proc;
+    process* proc;
 
     while(completed != n){
         // add processes that have arrived at time 'curr_time' or before curr_time into the priority queue.
@@ -50,7 +49,7 @@ void srtf(std::vector<process>& proc_list){
         }
 
         
-        Process* temp = pq.top();
+        process* temp = pq.top();
         pq.pop();
         if(temp->remaining_bur_time == temp->bur_time){
             temp->res_time = curr_time - temp->arr_time;
@@ -79,5 +78,5 @@ void srtf(std::vector<process>& proc_list){
         }
     }
     display_sched(proc_list);
-   */
+   
 }

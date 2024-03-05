@@ -1,8 +1,6 @@
-#include<iostream>
-#include"utilities.hpp"
+
 #include"Priority.hpp"
-#include<vector>
-using namespace std;
+
 
 bool ComparePriority_priority::operator()(const process* a, const process* b){
     // Higher priority goes first
@@ -11,32 +9,24 @@ bool ComparePriority_priority::operator()(const process* a, const process* b){
 
 
 void priority(vector<process> &proc_list){
-    /*
-    cout << "This is the demo for Shortest Remaining Time First scheduling algorithm \n";
-    cout << "Enter the number of processes you want for the simulation of algorithm: ";
-    int n;
-    cin >> n;
-    vector<Process> proc_list(n);
-    int j = 0;
+    
+    cout << "Priority Preeemptive version\n";
+   
+    int i = 0, n = proc_list.size();
+    
+    
     cout << "\nNow, Enter the arrival time and burst time for the " << n << " processes.\n";
-    while(j<n){
-        proc_list[j].num = j + 1;
-        cout << "\nPROCESS__" << j + 1 << "\n\n";
-        cout << "Arrival time: ";
-        cin >> proc_list[j].arr_time;
-        cout << "Burst time: ";
-        cin >> proc_list[j].bur_time;
-        proc_list[j].remaining_bur_time = proc_list[j].bur_time;
+    while(i<n){
         cout << "Priority (0 is highest priority): ";
-        cin >> proc_list[j].priority;        
-        j++;
+        cin >> proc_list[i].priority;        
+        i++;
     }
 
-    sort(proc_list.begin(), proc_list.end(), srtf_comp_atime);
+    sort(proc_list.begin(), proc_list.end(), compare_atime);
 
-    priority_queue<Process*, vector<Process*>, ComparePriority> pq;
+    priority_queue<process*, vector<process*>, ComparePriority_priority> pq;
     int curr_time = 0, completed = 0, ptr = 0, x;
-    Process* proc_en, *proc_de;
+    process* proc_en, *proc_de;
 
     while(completed != n){
         // add processes that have arrived at time 'curr_time' or before curr_time into the priority queue.
@@ -89,17 +79,6 @@ void priority(vector<process> &proc_list){
         }
     }
 
-    //Displaying the times in tabular form
-    cout<<"\n\nP.no.\tAT\tBT\tCT\tTAT\tWT\tRT\n"<<endl;
-    for(int i = 0; i < n; i++)
-    {
-        cout<<proc_list[i].num<<"\t";
-        cout<<proc_list[i].arr_time<<"\t";
-        cout<<proc_list[i].bur_time<<"\t";
-        cout<<proc_list[i].com_time<<"\t";
-        cout<<proc_list[i].turn_time<<"\t";
-        cout<<proc_list[i].wait_time<<"\t";
-        cout<<proc_list[i].res_time<<"\t"<<"\n";
-    }
-    */
+    display_sched(proc_list);
+    
 }

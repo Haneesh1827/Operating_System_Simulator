@@ -1,8 +1,6 @@
-#include <iostream>
-#include "utilities.hpp"
+
 #include "FCFS.hpp"
-#include <vector>
-#include <algorithm>
+
 using namespace std;
 
 

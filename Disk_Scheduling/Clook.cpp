@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-
+/*
 void clook_main()
 {
     int n, i, j, head, item[20], dst[20];
@@ -64,4 +64,4 @@ void clook_main()
 
 
 
-}
+}*/

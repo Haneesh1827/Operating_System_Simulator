@@ -1,6 +1,6 @@
 #ifndef Priority_non
 #define Priority_non
-#include<vector>
+#include<queue>
 #include"utilities.hpp"
 using namespace std;
 class ComparePriority{

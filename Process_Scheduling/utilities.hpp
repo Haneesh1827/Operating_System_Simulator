@@ -2,6 +2,8 @@
 
 #define UTILITIES
 #include<vector>
+#include<algorithm>
+#include<iostream>
 class process{
     public:
     int num; //process number
@@ -13,6 +15,7 @@ class process{
     int turn_time; // turnaround time
     int priority; //priority
     int remaining_bur_time; //remaining_bur_time
+    int isCompleted;
 };
 
 bool compare_atime(process P, process Q); //to sort according to arrival time

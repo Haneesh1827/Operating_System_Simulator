@@ -1,7 +1,8 @@
 #ifndef LRTF
 #define LRTF
 #include"utilities.hpp"
-#include<vector>
+#include<queue>
+#include<limits.h>
 using namespace std;
 class ComparePriority_LRTF {
 public:
