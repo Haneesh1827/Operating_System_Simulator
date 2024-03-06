@@ -7,7 +7,7 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "*.cpp",  // Change this line to include all .cpp files
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],

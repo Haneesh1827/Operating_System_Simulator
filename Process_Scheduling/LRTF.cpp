@@ -4,14 +4,14 @@
 
 
 
-class ComparePriority_LRTF {
-public:
-    bool operator()(const process* a, const process* b) {
+  
+
+bool ComparePriority_LRTF::operator()(const process* a, const process* b) {
         if(a->priority == b->priority)    
             return a->arr_time > b->arr_time;// Higher priority goes first
         return a->priority < b->priority;
-    }
-};
+}
+
 
 
 

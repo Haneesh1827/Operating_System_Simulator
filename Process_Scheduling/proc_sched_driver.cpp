@@ -112,10 +112,13 @@ void proc_sched_main(){
 
 					break;
 				case 2:
+					cout <<" hello\n";
 					sjf(proc_list);
 					break;
 				case 3:
+					cout << "hello";
 					round_robin(proc_list);
+					cout << "hello\n";
 					break;
 				case 4:
 					ljf(proc_list);
@@ -157,7 +160,7 @@ void proc_sched_main(){
 			}
 			if(flag == 0)
 				break;
-    	}		
+		}		
 	}
 }
 /*

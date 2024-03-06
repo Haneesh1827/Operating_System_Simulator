@@ -5,7 +5,7 @@
 
 
 void round_robin(vector<process> &proc_list){
-
+    
     cout << "round_robin \n";
     
     int i = 0, n = proc_list.size();
@@ -23,7 +23,7 @@ void round_robin(vector<process> &proc_list){
 
     queue<process*> que;
     process *proc_en, *proc_de = NULL;
-    int curr_time = 0, completed = 0, ptr = 0,y;
+    int curr_time = 0, completed = 0, ptr = 0;
 
     while(ptr < n){
         proc_en = &proc_list[ptr];

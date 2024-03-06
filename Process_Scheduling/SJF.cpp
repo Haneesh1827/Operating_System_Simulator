@@ -45,7 +45,7 @@ void sjf(vector<process> &proc_list){
 
      //Displaying the times in tabular form
     display_sched(proc_list);
-    
+   
 }
 
 

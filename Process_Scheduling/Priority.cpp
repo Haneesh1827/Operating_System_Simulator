@@ -9,7 +9,7 @@ bool ComparePriority_priority::operator()(const process* a, const process* b){
 
 
 void priority(vector<process> &proc_list){
-    
+    cout << "heck yeah\n"; 
     cout << "Priority Preeemptive version\n";
    
     int i = 0, n = proc_list.size();

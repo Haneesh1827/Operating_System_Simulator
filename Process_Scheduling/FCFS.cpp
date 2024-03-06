@@ -23,5 +23,6 @@ void fcfs(vector<process> &proc_list){
     }
 
     display_sched(proc_list); 
+    
 }
 

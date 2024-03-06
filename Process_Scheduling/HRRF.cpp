@@ -10,8 +10,8 @@ double Calculate_res_ratio(process &P, int curr_time){
 }
 
 void hrrf(vector<process> &proc_list){
-    
-    cout << "HRRF \n";
+   
+    cout << "HRRF what the fuck \n";
    
     int i, n = proc_list.size();
 
@@ -51,5 +51,5 @@ void hrrf(vector<process> &proc_list){
             proc_list[idx].isCompleted = 1;
         }
     }
-    
+    display_sched(proc_list); 
 }
