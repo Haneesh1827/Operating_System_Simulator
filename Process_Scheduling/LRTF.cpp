@@ -7,17 +7,17 @@
   
 
 bool ComparePriority_LRTF::operator()(const process* a, const process* b) {
-        if(a->priority == b->priority)    
+        if(a->remaining_bur_time == b->remaining_bur_time)    
             return a->arr_time > b->arr_time;// Higher priority goes first
-        return a->priority < b->priority;
+        return a->remaining_bur_time < b->remaining_bur_time;
 }
 
 
 
 
-void lrtf(vector<process>& proc_list){
-    
-    cout << "LRTF \n";
+void lrtf(vector<process> proc_list){
+    fun(6);
+    cout << BOLDMAGENTA << "LONGEST REMAINING TIME FIRST" << RESET;
     
     int i = 0, n = proc_list.size();
     
@@ -58,30 +58,32 @@ void lrtf(vector<process>& proc_list){
         proc_de = pq.top();
         pq.pop();
         process* temp = pq.top();
-        if(proc_de->priority == temp->priority)
+
+        if(proc_de->remaining_bur_time == temp->remaining_bur_time)
             x = 1;
         else
-            x  = min(x, proc_de->priority - temp->priority);
-        if(proc_de->priority == proc_de->bur_time){
+            x  = min(x, proc_de->remaining_bur_time - temp->remaining_bur_time);
+
+        if(proc_de->remaining_bur_time == proc_de->bur_time){
             proc_de->res_time = curr_time - proc_de->arr_time;
         }
 
 
-        int tmp;
+        
         if(proc_de->bur_time > 0){
             if(x != INT_MAX){
-                tmp = proc_de->priority;
-                proc_de->priority-= min(x, proc_de->priority);                 
-                curr_time += min(x,tmp);
+                curr_time += min(x, proc_de->remaining_bur_time);
+                proc_de->remaining_bur_time -= min(x, proc_de->remaining_bur_time);                 
+                
             }
             else{
-                tmp = proc_de->priority;
-                proc_de->priority = 0;
-                curr_time += tmp;
+                curr_time += proc_de->remaining_bur_time;
+                proc_de->remaining_bur_time = 0;
+                
             }
         }
 
-        if(proc_de->priority == 0){
+        if(proc_de->remaining_bur_time == 0){
             completed++;
             proc_de->com_time = curr_time ;
             proc_de->turn_time = proc_de->com_time - proc_de->arr_time;
@@ -93,5 +95,5 @@ void lrtf(vector<process>& proc_list){
     }
 
     display_sched(proc_list);
-    
+    display_avg(proc_list);
 }

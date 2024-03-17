@@ -9,5 +9,5 @@ public:
     bool operator()(const process* a, const process* b);
        
 };
-void lrtf(vector<process> &proc_list);
+void lrtf(vector<process> proc_list);
 #endif

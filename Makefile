@@ -13,17 +13,22 @@ SOURCES = driver.cpp animations.cpp \
 		  Disk_Scheduling/Look.cpp \
 		  Disk_Scheduling/Scan.cpp \
 		  Memory_Management/memory_driver.cpp \
-		  Memory_Management/mft/mft_driver.cpp \
 		  Memory_Management/mvt/mvt_driver.cpp \
 		  Memory_Management/mvt/bestfit.cpp \
 		  Memory_Management/mvt/worstfit.cpp \
 		  Memory_Management/mvt/firstfit.cpp \
-		  Memory_Management/page_replacement/paging_driver.cpp \
+		  Memory_Management/page_replacement/pag_rep_driver.cpp \
+		  Memory_Management/page_replacement/fifo.cpp \
+		  Memory_Management/page_replacement/lru.cpp \
+		  Memory_Management/page_replacement/mru.cpp \
+		  Memory_Management/page_replacement/optimal.cpp \
+		  Memory_Management/page_replacement/pagedef.cpp \
 		  Process_Synchronization/proc_sync_driver.cpp \
 		  Process_Synchronization/barbershop.cpp \
 		  Process_Synchronization/dining_philsophers.cpp \
 		  Process_Synchronization/producer_consumer.cpp \
 		  Process_Synchronization/reader_writer.cpp \
+		  Process_Synchronization/deadlockdetection.cpp \
 		  Process_Scheduling/proc_sched_driver.cpp \
 		  Process_Scheduling/FCFS.cpp \
 		  Process_Scheduling/HRRF.cpp \

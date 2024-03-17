@@ -1,114 +1,45 @@
+#include"disk.hpp"
 
-#include <bits/stdc++.h> 
-using namespace std; 
-
-/*
-// ANSI escape codes for text colors
-#define RESET   "\033[0m"
-#define RED     "\033[31m"      
-#define GREEN   "\033[32m"      
-#define YELLOW  "\033[33m"      
-#define BLUE    "\033[34m"      
-#define MAGENTA "\033[35m"      
-#define CYAN    "\033[36m"      
-#define WHITE   "\033[37m"
-*/
-int disk_size = 1000; 
-
-/*void LOOK(int arr[], int head, string direction) 
-{ 
-    int seek_count = 0; 
-    int distance, cur_track; 
-    vector<int> left, right; 
-    vector<int> seek_sequence; 
-  
-    // appending values which are 
-    // currently at left and right 
-    // direction from the head. 
-    for (int i = 0; i < size; i++) { 
-        if (arr[i] < head) 
-            left.push_back(arr[i]); 
-        if (arr[i] > head) 
-            right.push_back(arr[i]); 
-    } 
-  
-    // sorting left and right vectors 
-    // for servicing tracks in the 
-    // correct sequence. 
-    std::sort(left.begin(), left.end()); 
-    std::sort(right.begin(), right.end()); 
-  
-    // run the while loop two times. 
-    // one by one scanning right 
-    // and left side of the head 
-    int run = 2; 
-    while (run--) { 
-        if (direction == "left") { 
-            for (int i = left.size() - 1; i >= 0; i--) { 
-                cur_track = left[i]; 
-  
-                // appending current track to seek sequence 
-                seek_sequence.push_back(cur_track); 
-  
-                // calculate absolute distance 
-                distance = abs(cur_track - head); 
-  
-                // increase the total count 
-                seek_count += distance; 
-  
-                // accessed track is now the new head 
-                head = cur_track; 
-            } 
-            // reversing the direction 
-            direction = "right"; 
-        } 
-        else if (direction == "right") { 
-            for (int i = 0; i < right.size(); i++) { 
-                cur_track = right[i]; 
-                // appending current track to seek sequence 
-                seek_sequence.push_back(cur_track); 
-  
-                // calculate absolute distance 
-                distance = abs(cur_track - head); 
-  
-                // increase the total count 
-                seek_count += distance; 
-  
-                // accessed track is now new head 
-                head = cur_track; 
-            } 
-            // reversing the direction 
-            direction = "left"; 
-        } 
-    } 
-  
-    cout << "Total number of seek operations = "
-         << seek_count << endl; 
-  
-    cout << "Seek Sequence is" << endl; 
-  
-    for (int i = 0; i < seek_sequence.size(); i++) { 
-        cout << seek_sequence[i] << endl; 
-    } 
-} */
-  
-// Driver code
-/*int main(){ 
-    int n, head;
-    cout << RED << "Enter the number of disk requests: \n"; 
-    cin >> n;
-    vector<int> Requests(n);
-    cout << RED << "Enter the "<< n << " seek requests: \n";
-    for(int i = 0; i < n; i++){
-        cin >> Requests[i];
+void Look_main(Arg arg){
+    long int j=1 <<16;
+    for (size_t i = 0; i < 6; i++){
+        usleep(j); // move faster and faster,
+        j = (int)(j * 0.9); // so sleep less each time
+        cout << endl;
     }
-    cout << RED << "Enter the initial head position: \n";
-    cin >> head;
-    cout << RED << "Choose the disk scheduling alogrithm among the following options: \n" << RESET;
-    cout << "\n 1. C-LOOK" << endl;
-	cout << " 2. C-SCAN" << endl;
-	cout << " 3. FCFS" << endl;
-	cout << " 4. LOOK" << endl;
-	cout << " 5. SCAN" << endl;
-	cout << " 6. SSTF\n";
-} */
+    cout << BOLDMAGENTA << "LOOK Simulation\n\n\n";
+    
+  
+    vector<int> left, right;
+    vector<int> seek_sequence;
+    int n = arg.seekreq.size(), i;
+    // separate the requests partiioned by the intial head position
+    for(i = 0; i < n; i++) {
+        if(arg.seekreq[i] < arg.startseekloc)
+            left.push_back(arg.seekreq[i]);
+        else
+            right.push_back(arg.seekreq[i]);
+    }
+    
+    //sort left and right vectors
+    
+    sort(right.begin(), right.end());
+    sort(left.begin(), left.end(), greater<int>());
+    
+    for(int num: right)
+        seek_sequence.push_back(num);
+    for(int num: left)
+        seek_sequence.push_back(num);
+    
+    requests_entered(arg);
+    cout << BOLDCYAN << "Intial position of head: " << BOLDWHITE << arg.startseekloc << "\n\n";
+    cout << BOLDCYAN << "Intial direction of head: "<< BOLDWHITE << "Towards Right" << "\n\n"; 
+    cout << BOLDCYAN << "Length of the disk: " << BOLDWHITE << arg.disk_size << "\n\n\n\n";
+    cout << BOLDCYAN << "Head Movement: " << BOLDWHITE;
+    
+    cout << arg.startseekloc << " ---> ";
+    for(i = 0; i < n-1; ++i)
+        cout << seek_sequence[i] << " ---> ";
+    cout << seek_sequence[i];
+    cout << RESET;
+}

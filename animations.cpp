@@ -1,33 +1,14 @@
-#include <unistd.h> // for usleep function
+
 #include"animations.hpp"
-#include <bits/stdc++.h>
-#define RESET   "\033[0m"
-#define BLACK   "\033[30m"      /* Black */
-#define RED     "\033[31m"      /* Red */
-#define GREEN   "\033[32m"      /* Green */
-#define YELLOW  "\033[33m"      /* Yellow */
-#define BLUE    "\033[34m"      /* Blue */
-#define MAGENTA "\033[35m"      /* Magenta */
-#define CYAN    "\033[36m"      /* Cyan */
-#define WHITE   "\033[37m"      /* White */
-#define BOLDBLACK   "\033[1m\033[30m"      /* Bold Black */
-#define BOLDRED     "\033[1m\033[31m"      /* Bold Red */
-#define BOLDGREEN   "\033[1m\033[32m"      /* Bold Green */
-#define BOLDYELLOW  "\033[33m"      /* Bold Yellow */
-#define BOLDBLUE    "\033[1m\033[34m"      /* Bold Blue */
-#define BOLDMAGENTA "\033[1m\033[35m"      /* Bold Magenta */
-#define BOLDCYAN    "\033[1m\033[36m"      /* Bold Cyan */
-#define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
-#define UN "\e[4m"
 
 
-using namespace std;
-int main_animation() {
+
+void main_animation() {
     for (int i = 0; i < 20; i ++) printf("\n"); // jump to bottom of console
     
-    cout << CYAN "░█████╗░░██████╗  ░██████╗██╗███╗░░░███╗██╗░░░██╗██╗░░░░░░█████╗░████████╗░█████╗░██████╗░\n██╔══██╗██╔════╝  ██╔════╝██║████╗░████║██║░░░██║██║░░░░░██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗\n██║░░██║╚█████╗░  ╚█████╗░██║██╔████╔██║██║░░░██║██║░░░░░███████║░░░██║░░░██║░░██║██████╔╝\n██║░░██║░╚═══██╗  ░╚═══██╗██║██║╚██╔╝██║██║░░░██║██║░░░░░██╔══██║░░░██║░░░██║░░██║██╔══██╗\n╚█████╔╝██████╔╝  ██████╔╝██║██║░╚═╝░██║╚██████╔╝███████╗██║░░██║░░░██║░░░╚█████╔╝██║░░██║\n░╚════╝░╚═════╝░  ╚═════╝░╚═╝╚═╝░░░░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝";
-    cout <<"\n"<<endl;
-   
+    cout << BOLDCYAN "░█████╗░░██████╗  ░██████╗██╗███╗░░░███╗██╗░░░██╗██╗░░░░░░█████╗░████████╗░█████╗░██████╗░\n██╔══██╗██╔════╝  ██╔════╝██║████╗░████║██║░░░██║██║░░░░░██╔══██╗╚══██╔══╝██╔══██╗██╔══██╗\n██║░░██║╚█████╗░  ╚█████╗░██║██╔████╔██║██║░░░██║██║░░░░░███████║░░░██║░░░██║░░██║██████╔╝\n██║░░██║░╚═══██╗  ░╚═══██╗██║██║╚██╔╝██║██║░░░██║██║░░░░░██╔══██║░░░██║░░░██║░░██║██╔══██╗\n╚█████╔╝██████╔╝  ██████╔╝██║██║░╚═╝░██║╚██████╔╝███████╗██║░░██║░░░██║░░░╚█████╔╝██║░░██║\n░╚════╝░╚═════╝░  ╚═════╝░╚═╝╚═╝░░░░░╚═╝░╚═════╝░╚══════╝╚═╝░░╚═╝░░░╚═╝░░░░╚════╝░╚═╝░░╚═╝";
+    cout <<RESET;
+    
     long int j=1 <<16;
     for (size_t i = 0; i < 10; i++)
     {
@@ -36,74 +17,38 @@ int main_animation() {
         cout << endl;
     }
     
-    return 0;
-}
-
-int print_main_menu(){
-    cout << " \n" YELLOW UN "Choose Algorithm to simulate" RESET << endl <<endl;
-    cout << WHITE;
-    cout << " 1. Page Replacement Algorithms"<<endl;
-    cout << " 2. Deadlock Algorithms"<<endl;
-    cout << " 3. Process Scheduling" << endl;
-    cout << " 4. Memory Management" << endl;
-    cout << " 5. Process Syncronization" << endl;
-    cout << " 6. Disk Scheduling" << endl;
-
-    cout << " 9. Exit\n"<<endl;
-    long int j=1 <<16;
-    for (size_t i = 0; i < 10; i++)
-    {
-        usleep(j); // move faster and faster,
-        j = (int)(j * 0.9); // so sleep less each time
-        cout << endl;
-    }
-    cout << YELLOW "Enter your choice : ";
-    return 0;
-}
-int paging_animation(){
-    cout << "\n" <<endl;
-    cout << "██████╗  █████╗  ██████╗ ███████╗    ██████╗ ███████╗██████╗ ██╗      █████╗  ██████╗███████╗███╗   ███╗███████╗███╗   ██╗████████╗" << endl;
-    cout << "██╔══██╗██╔══██╗██╔════╝ ██╔════╝    ██╔══██╗██╔════╝██╔══██╗██║     ██╔══██╗██╔════╝██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝" << endl;
-    cout << "██████╔╝███████║██║  ███╗█████╗      ██████╔╝█████╗  ██████╔╝██║     ███████║██║     █████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║ "   << endl;
-    cout << "██╔═══╝ ██╔══██║██║   ██║██╔══╝      ██╔══██╗██╔══╝  ██╔═══╝ ██║     ██╔══██║██║     ██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║ "  << endl;
-    cout << "██║     ██║  ██║╚██████╔╝███████╗    ██║  ██║███████╗██║     ███████╗██║  ██║╚██████╗███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║ " << endl;
-    cout << "╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚══════╝    ╚═╝  ╚═╝╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝ ╚═════╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝ " <<endl;
-    long int j=1 <<16;
-    for (size_t i = 0; i < 10; i++)
-    {
-        usleep(j); // move faster and faster,
-        j = (int)(j * 0.9); // so sleep less each time
-        cout << endl;
-    }
-    return 0;
-}
-
-
-int dead_safe_animation(){
-    cout << "██████╗ ███████╗ █████╗ ██████╗     ██╗      ██████╗  ██████╗██╗  ██╗\n";
-    cout << "██╔══██╗██╔════╝██╔══██╗██╔══██╗    ██║     ██╔═══██╗██╔════╝██║ ██╔╝╗\n";
-    cout << "██║  ██║█████╗  ███████║██║  ██║    ██║     ██║   ██║██║     █████╔╝ \n";
-    cout << "██║  ██║██╔══╝  ██╔══██║██║  ██║    ██║     ██║   ██║██║     ██╔═██╗ \n";
-    cout << "██████╔╝███████╗██║  ██║██████╔╝    ███████╗╚██████╔╝╚██████╗██║  ██╗\n";
-    cout << "╚═════╝ ╚══════╝╚═╝  ╚═╝╚═════╝     ╚══════╝ ╚═════╝  ╚═════╝╚═╝  ╚═╝\n";
-    cout <<endl;                                                                                                       
-    cout << "███████╗ █████╗ ███████╗███████╗████████╗██╗   ██╗     █████╗ ██╗      ██████╗  ██████╗ ███████╗\n";
-    cout << "██╔════╝██╔══██╗██╔════╝██╔════╝╚══██╔══╝╚██╗ ██╔╝    ██╔══██╗██║     ██╔════╝ ██╔═══██╗██╔════╝\n";
-    cout << "███████╗███████║█████╗  █████╗     ██║    ╚████╔╝     ███████║██║     ██║  ███╗██║   ██║███████╗\n";
-    cout << "╚════██║██╔══██║██╔══╝  ██╔══╝     ██║     ╚██╔╝      ██╔══██║██║     ██║   ██║██║   ██║╚════██║\n";
-    cout << "███████║██║  ██║██║     ███████╗   ██║      ██║       ██║  ██║███████╗╚██████╔╝╚██████╔╝███████║██╗\n";
-    cout << "╚══════╝╚═╝  ╚═╝╚═╝     ╚══════╝   ╚═╝      ╚═╝       ╚═╝  ╚═╝╚══════╝ ╚═════╝  ╚═════╝ ╚══════╝╚═╝\n";
-    long int j=1 <<16;
-    for (size_t i = 0; i < 10; i++)
-    {
-        usleep(j); // move faster and faster,
-        j = (int)(j * 0.9); // so sleep less each time
-        cout << endl;
-    }
-    return 0;
-}
-int process_sched_animation(){
     
+}
+
+void print_main_menu(){
+    long int j=1 <<16;
+    for (size_t i = 0; i < 6; i++)
+    {
+        usleep(j); // move faster and faster,
+        j = (int)(j * 0.9); // so sleep less each time
+        cout << endl;
+    }
+    cout << " \n" BOLDGREEN "Choose Algorithm to simulate" RESET << endl <<endl;
+    cout << BOLDWHITE;
+    cout << " 1. Process Scheduling" << endl;
+    cout << " 2. Memory Management" << endl;
+    cout << " 3. Process Syncronization" << endl;
+    cout << " 4. Disk Scheduling" << endl;
+
+    cout << " 9. Exit\n\n\n";
+ 
+    cout << BOLDGREEN "Enter your choice : " << RESET;
+    
+}
+
+void process_sched_animation(){
+    long int j=1 <<16;
+    for (size_t i = 0; i < 5; i++){
+        usleep(j); // move faster and faster,
+        j = (int)(j * 0.9); // so sleep less each time
+        cout << endl;
+    }
+    cout << BOLDCYAN;
     cout << "██████╗ ██████╗  █████╗  █████╗ ███████╗ ██████╗ ██████╗" << endl;
     cout << "██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝" << endl;
     cout << "██████╔╝██████╔╝██║  ██║██║  ╚═╝█████╗  ╚█████╗ ╚█████╗" << endl;
@@ -117,17 +62,23 @@ int process_sched_animation(){
     cout << " ╚═══██╗██║  ██╗██╔══██║██╔══╝  ██║  ██║██║   ██║██║     ██║██║╚████║██║  ╚██╗" << endl;
     cout << "██████╔╝╚█████╔╝██║  ██║███████╗██████╔╝╚██████╔╝███████╗██║██║ ╚███║╚██████╔╝" << endl;
     cout << "╚═════╝  ╚════╝ ╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝ ╚══════╝╚═╝╚═╝  ╚══╝ ╚═════╝" << endl;
-    long int j=1 <<16;
-    for (size_t i = 0; i < 10; i++)
-    {
+    cout << RESET;
+    j=1 <<16;
+    for (size_t i = 0; i < 5; i++){
         usleep(j); // move faster and faster,
         j = (int)(j * 0.9); // so sleep less each time
         cout << endl;
     }
-    return 0;
+    
 }
-int mem_animations(){
-    cout << endl << YELLOW;
+void mem_animations(){
+    long int j=1 <<16;
+    for (size_t i = 0; i < 5; i++){
+        usleep(j); // move faster and faster,
+        j = (int)(j * 0.9); // so sleep less each time
+        cout << endl;
+    }
+    cout << BOLDCYAN;
     cout << "███╗   ███╗███████╗███╗   ███╗ █████╗ ██████╗ ██╗   ██╗" << endl;
     cout << "████╗ ████║██╔════╝████╗ ████║██╔══██╗██╔══██╗╚██╗ ██╔╝" << endl;
     cout << "██╔████╔██║█████╗  ██╔████╔██║██║  ██║██████╔╝ ╚████╔╝" << endl;
@@ -141,17 +92,23 @@ int mem_animations(){
     cout << "██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║  ╚██╗██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚████║   ██║  " << endl;
     cout << "██║ ╚═╝ ██║██║  ██║██║ ╚███║██║  ██║╚██████╔╝███████╗██║ ╚═╝ ██║███████╗██║ ╚███║   ██║  " << endl;
     cout << "╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚══╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚══╝   ╚═╝  " << endl;
-    long int j=1 <<16;
-    for (size_t i = 0; i < 10; i++)
-    {
+    cout << RESET;
+    j=1 <<16;
+    for (size_t i = 0; i < 5; i++){
         usleep(j); // move faster and faster,
         j = (int)(j * 0.9); // so sleep less each time
         cout << endl;
     }
-    return 0;
+    
 }
-int sync_animations(){
-    cout << endl << YELLOW;
+void sync_animations(){
+    long int j=1 <<16;
+    for (size_t i = 0; i < 5; i++){
+        usleep(j); // move faster and faster,
+        j = (int)(j * 0.9); // so sleep less each time
+        cout << endl;
+    }
+    cout << BOLDCYAN;
     cout << "██████╗ ██████╗  █████╗  █████╗ ███████╗ ██████╗ ██████╗" << endl;
     cout << "██╔══██╗██╔══██╗██╔══██╗██╔══██╗██╔════╝██╔════╝██╔════╝" << endl;
     cout << "██████╔╝██████╔╝██║  ██║██║  ╚═╝█████╗  ╚█████╗ ╚█████╗" << endl;
@@ -165,17 +122,23 @@ int sync_animations(){
     cout << " ╚═══██╗  ╚██╔╝  ██║  ██╗██╔══██╗██║  ██║██║╚████║██║ ╚═══██╗██╔══██║   ██║   ██║██║  ██║██║╚████║" << endl;
     cout << "██████╔╝   ██║   ╚█████╔╝██║  ██║╚█████╔╝██║ ╚███║██║██████╔╝██║  ██║   ██║   ██║╚█████╔╝██║ ╚███║" << endl;
     cout << "╚═════╝    ╚═╝    ╚════╝ ╚═╝  ╚═╝ ╚════╝ ╚═╝  ╚══╝╚═╝╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚════╝ ╚═╝  ╚══╝" << endl;
-    long int j=1 <<16;
-    for (size_t i = 0; i < 10; i++)
-    {
+    cout << RESET;
+    j=1 <<16;
+    for (size_t i = 0; i < 5; i++){
         usleep(j); // move faster and faster,
         j = (int)(j * 0.9); // so sleep less each time
         cout << endl;
     }
-    return 0;
+    
 }
-int disk_animations(){
-    cout << endl << YELLOW;
+void disk_animations(){
+    long int j=1 <<16;
+    for (size_t i = 0; i < 6; i++){
+        usleep(j); // move faster and faster,
+        j = (int)(j * 0.9); // so sleep less each time
+        cout << endl;
+    }
+    cout << endl << BOLDCYAN;
     cout << "██████╗ ██╗ ██████╗██╗  ██╗" << endl;
     cout << "██╔══██╗██║██╔════╝██║ ██╔╝" << endl;
     cout << "██║  ██║██║╚█████╗ █████═╝ " << endl;
@@ -183,18 +146,16 @@ int disk_animations(){
     cout << "██████╔╝██║██████╔╝██║ ╚██╗" << endl;
     cout << "╚═════╝ ╚═╝╚═════╝ ╚═╝  ╚═╝" << endl;
     cout << endl;
-    cout << "███╗   ███╗ █████╗ ███╗  ██╗ █████╗  ██████╗ ███████╗███╗   ███╗███████╗███╗  ██╗████████╗" << endl;
-    cout << "████╗ ████║██╔══██╗████╗ ██║██╔══██╗██╔════╝ ██╔════╝████╗ ████║██╔════╝████╗ ██║╚══██╔══╝" << endl;
-    cout << "██╔████╔██║███████║██╔██╗██║███████║██║  ██╗ █████╗  ██╔████╔██║█████╗  ██╔██╗██║   ██║  " << endl;
-    cout << "██║╚██╔╝██║██╔══██║██║╚████║██╔══██║██║  ╚██╗██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚████║   ██║  " << endl;
-    cout << "██║ ╚═╝ ██║██║  ██║██║ ╚███║██║  ██║╚██████╔╝███████╗██║ ╚═╝ ██║███████╗██║ ╚███║   ██║  " << endl;
-    cout << "╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚══╝╚═╝  ╚═╝ ╚═════╝ ╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚══╝   ╚═╝  " << endl;
-    long int j=1 <<16;
-    for (size_t i = 0; i < 10; i++)
-    {
+    cout << " ██████╗ █████╗ ██╗  ██╗███████╗██████╗ ██╗   ██╗██╗     ██╗███╗  ██╗ ██████╗" << endl;
+    cout << "██╔════╝██╔══██╗██║  ██║██╔════╝██╔══██╗██║   ██║██║     ██║████╗ ██║██╔════╝" << endl;
+    cout << "╚█████╗ ██║  ╚═╝███████║█████╗  ██║  ██║██║   ██║██║     ██║██╔██╗██║██║  ███╗" << endl;
+    cout << " ╚═══██╗██║  ██╗██╔══██║██╔══╝  ██║  ██║██║   ██║██║     ██║██║╚████║██║  ╚██╗" << endl;
+    cout << "██████╔╝╚█████╔╝██║  ██║███████╗██████╔╝╚██████╔╝███████╗██║██║ ╚███║╚██████╔╝" << endl;
+    cout << "╚═════╝  ╚════╝ ╚═╝  ╚═╝╚══════╝╚═════╝  ╚═════╝ ╚══════╝╚═╝╚═╝  ╚══╝ ╚═════╝" << endl << RESET;
+    j=1 <<16;
+    for (size_t i = 0; i < 7; i++){
         usleep(j); // move faster and faster,
         j = (int)(j * 0.9); // so sleep less each time
         cout << endl;
     }
-    return 0;
 }

@@ -4,9 +4,9 @@
 
 
 
-void round_robin(vector<process> &proc_list){
-    
-    cout << "round_robin \n";
+void round_robin(vector<process> proc_list){
+    fun(6);
+    cout << BOLDMAGENTA << "ROUND ROBIN\n" << RESET;
     
     int i = 0, n = proc_list.size();
    
@@ -16,7 +16,7 @@ void round_robin(vector<process> &proc_list){
         i++;
     }
     int x;
-    cout << "\nEnter the slice time: ";
+    cout << BOLDGREEN <<"\nEnter the slice time: " << BOLDWHITE;
     cin >> x;
 
     sort(proc_list.begin(), proc_list.end(), compare_atime);
@@ -54,7 +54,7 @@ void round_robin(vector<process> &proc_list){
         que.pop();
 
         if(proc_de->bur_time == proc_de->remaining_bur_time)
-            proc_de->res_time = curr_time;
+            proc_de->res_time = curr_time - proc_de->arr_time;
 
         int temp;
         
@@ -74,6 +74,7 @@ void round_robin(vector<process> &proc_list){
     } 
 
     display_sched(proc_list);
+    display_avg(proc_list);
     
   
 }

@@ -9,9 +9,9 @@ double Calculate_res_ratio(process &P, int curr_time){
     return (double)(curr_time - P.arr_time + P.bur_time)/P.bur_time;
 }
 
-void hrrf(vector<process> &proc_list){
-   
-    cout << "HRRF what the fuck \n";
+void hrrf(vector<process> proc_list){
+    fun(6);
+    cout << BOLDMAGENTA << "HIGHEST RESPONSE RATIO FIRST" << RESET;
    
     int i, n = proc_list.size();
 
@@ -42,7 +42,7 @@ void hrrf(vector<process> &proc_list){
             curr_time = proc_list[i].arr_time;
         }
         else{
-            proc_list[idx].res_time = curr_time;
+            proc_list[idx].res_time = curr_time - proc_list[idx].arr_time;
             curr_time += proc_list[idx].bur_time;
             completed++;
             proc_list[idx].com_time = curr_time;
@@ -51,5 +51,6 @@ void hrrf(vector<process> &proc_list){
             proc_list[idx].isCompleted = 1;
         }
     }
-    display_sched(proc_list); 
+    display_sched(proc_list);
+    display_avg(proc_list); 
 }

@@ -11,16 +11,16 @@ bool ComparePriority::operator()(const process* a, const process* b){
 
 
 
-void priority_non(vector<process> &proc_list){
-    
-    cout << "Priority Non-Preemptive \n";
+void priority_non(vector<process> proc_list){
+    fun(6); 
+    cout << BOLDMAGENTA <<"PRIORITY FIRST (Non-Preemptive Version)\n\n" << RESET;
    
     int i = 0, n = proc_list.size() ;
     
-    cout << "\nNow, Enter the priority for the " << n << "processes.\n";
+    cout << BOLDGREEN <<"\nEnter the priority for the " << BOLDWHITE << n << BOLDGREEN << " processes.\n\n";
     while(i<n){
         
-        cout << "Enter priority(0 is highest priority): ";
+        cout << BOLDGREEN << "Enter priority(0 is highest priority): " << BOLDWHITE;
         cin >> proc_list[i].priority;
         i++;
         
@@ -47,7 +47,7 @@ void priority_non(vector<process> &proc_list){
         }
         proc_de = pq.top();
         pq.pop();
-        proc_de->res_time = curr_time;
+        proc_de->res_time = curr_time - proc_de->arr_time;
         curr_time += proc_de->bur_time;
         completed++;
         proc_de->com_time = curr_time;
@@ -55,6 +55,16 @@ void priority_non(vector<process> &proc_list){
         proc_de->wait_time = proc_de->turn_time - proc_de->bur_time;
     }
 
-    display_sched(proc_list);
-    
+    std::cout<< BOLDCYAN << "\n\nProcess No.\tPriority\tArrival Time\tBurst Time\tCompletion Time\t\tTurn-around Time\tWaiting Time\tResponse Time\n" << RESET;
+    for(int i = 0; i < n; i++){
+        std::cout<<proc_list[i].num<<"\t\t";
+        std::cout<<proc_list[i].priority<<"\t\t";
+        std::cout<<proc_list[i].arr_time<<"\t\t";
+        std::cout<<proc_list[i].bur_time<<"\t\t";
+        std::cout<<proc_list[i].com_time<<"\t\t\t";
+        std::cout<<proc_list[i].turn_time<<"\t\t\t";
+        std::cout<<proc_list[i].wait_time<<"\t\t";
+        std::cout<<proc_list[i].res_time<<"\n";
+    }
+    display_avg(proc_list); 
 }

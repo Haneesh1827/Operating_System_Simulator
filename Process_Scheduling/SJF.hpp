@@ -7,5 +7,5 @@ class ComparePriority_sjf {
 public:
     bool operator()(const process* a, const process* b);
 };
-void sjf(vector<process> &proc_list);
+void sjf(vector<process> proc_list);
 #endif

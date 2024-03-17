@@ -1,6 +1,6 @@
 #ifndef proc_sched_driver
 #define proc_sched_driver
-#include<vector>
+
 #include"FCFS.hpp"
 #include"HRRF.hpp"
 #include"LJF.hpp"
@@ -10,6 +10,7 @@
 #include"RR.hpp"
 #include"SJF.hpp"
 #include"SRTF.hpp"
+#include<unistd.h>
 
 vector<process> take_input();
 int policy_choice();

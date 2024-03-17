@@ -9,10 +9,10 @@ bool  ComparePriority_SRTF::operator()(const process* a, const process* b) {
 
 
 
-void srtf(std::vector<process>& proc_list){
+void srtf(std::vector<process> proc_list){
     
-    
-    cout << "SRTF \n";
+    fun(6); 
+    cout << BOLDMAGENTA << "SHORTEST REMAINING TIME FIRST" << RESET;
     
     int i = 0;
     int n = proc_list.size();
@@ -42,7 +42,7 @@ void srtf(std::vector<process>& proc_list){
         else if(ptr == n){
             x = -1;
         }
-        //if pq is empty, then just do only curr_time ++ and continue onto the next loop; 
+        
         if(pq.empty() == true){
             curr_time+= x;
             continue;
@@ -54,7 +54,9 @@ void srtf(std::vector<process>& proc_list){
         if(temp->remaining_bur_time == temp->bur_time){
             temp->res_time = curr_time - temp->arr_time;
         }
+        
         int tmp;
+
         if(temp->bur_time > 0){
             if(x != -1){
                 tmp = temp->remaining_bur_time;
@@ -67,6 +69,8 @@ void srtf(std::vector<process>& proc_list){
                 curr_time += tmp;
             }
         }
+
+
         if(temp->remaining_bur_time == 0){
             completed++;
             temp->com_time = curr_time ;
@@ -78,5 +82,6 @@ void srtf(std::vector<process>& proc_list){
         }
     }
     display_sched(proc_list);
+    display_avg(proc_list);
    
 }

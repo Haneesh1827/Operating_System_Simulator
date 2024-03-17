@@ -7,5 +7,5 @@ class ComparePriority{
     public:
     bool operator()(const process* a, const process* b);
 };
-void priority_non(vector<process> &proc_list);
+void priority_non(vector<process> proc_list);
 #endif

@@ -9,8 +9,9 @@ bool ComparePriority_ljf::operator()(const process* a, const process* b) {
 
 
 
-void ljf(vector<process> &proc_list){
-    cout << "LJF\n";
+void ljf(vector<process> proc_list){
+    fun(6);
+    cout << BOLDGREEN << "LONGEST JOB FIRST" << RESET;
     int n = proc_list.size();
     sort(proc_list.begin(), proc_list.end(), compare_atime);
 
@@ -33,7 +34,7 @@ void ljf(vector<process> &proc_list){
         }
         proc_de = pq.top();
         pq.pop();
-        proc_de->res_time = curr_time;
+        proc_de->res_time = curr_time - proc_de->arr_time;
         curr_time += proc_de->bur_time;
         completed++;
         proc_de->com_time = curr_time;
@@ -43,5 +44,6 @@ void ljf(vector<process> &proc_list){
 
      //Displaying the times in tabular form
     display_sched(proc_list);
+    display_avg(proc_list);
     
 }
