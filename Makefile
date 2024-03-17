@@ -21,7 +21,6 @@ SOURCES = driver.cpp animations.cpp \
 		  Memory_Management/page_replacement/fifo.cpp \
 		  Memory_Management/page_replacement/lru.cpp \
 		  Memory_Management/page_replacement/mru.cpp \
-		  Memory_Management/page_replacement/optimal.cpp \
 		  Memory_Management/page_replacement/pagedef.cpp \
 		  Process_Synchronization/proc_sync_driver.cpp \
 		  Process_Synchronization/barbershop.cpp \
